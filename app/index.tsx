@@ -30,10 +30,12 @@ export default function LoginPage() {
         <LoginOtherServices />
       </View>
 
-      <View className='bg-[#FFF9E2] w-full py-3 px-4 sticky bottom-0'>
-        <Text className='text-xs font-bold text-content-primary text-center'>
-          Selalu Akses Aplikasi e-OPen Agar Terhindar dari Pungli
-        </Text>
+      <View className='sticky bottom-0 pt-4'>
+        <View className='bg-[#FFF9E2] w-full py-3 px-4'>
+          <Text className='text-xs font-bold text-content-primary text-center'>
+            Selalu Akses Aplikasi e-OPen Agar Terhindar dari Pungli
+          </Text>
+        </View>
       </View>
     </ScrollView>
   )
