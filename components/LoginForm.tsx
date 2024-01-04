@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, useRouter } from 'expo-router'
 import { useForm } from 'react-hook-form'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View } from 'react-native'
 import InputText from './InputText'
 import useDummyData from '../store/useDummyData'
+import { ButtonPrimary } from './Button'
 
 type FormData = {
   email: string
@@ -63,12 +64,7 @@ export default function LoginForm() {
         Lupa Password?
       </Link>
 
-      <TouchableOpacity
-        onPress={handleSubmit(onSubmit)}
-        className='bg-secondary rounded-lg py-3 px-6'
-      >
-        <Text className='text-white font-bold text-center'>Masuk</Text>
-      </TouchableOpacity>
+      <ButtonPrimary title='Masuk' onPress={handleSubmit(onSubmit)} />
     </View>
   )
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
-import { iconAssets } from '../data'
+import { iconAssets } from '../../data'
 
 export default function BoxNoPendaftaran() {
   return (

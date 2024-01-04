@@ -5,9 +5,10 @@ import { StatusBar } from 'expo-status-bar'
 import HeaderAccentOne from '../components/HeaderAccentOne'
 import { Entypo } from '@expo/vector-icons'
 import InputText from '../components/InputText'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView } from 'react-native-gesture-handler'
 import { useForm } from 'react-hook-form'
 import useDummyData from '../store/useDummyData'
+import { ButtonPrimary } from '../components/Button'
 
 export default function ChangePassPage() {
   const router = useRouter()
@@ -30,22 +31,12 @@ export default function ChangePassPage() {
           {isSuccess ? (
             <>
               <SuccessPage />
-              <TouchableOpacity
-                onPress={() => router.push('/')}
-                className='bg-secondary rounded-lg py-3 px-6 disabled:bg-opacity-40'
-              >
-                <Text className='text-white font-bold text-center'>Masuk</Text>
-              </TouchableOpacity>
+              <ButtonPrimary title='Masuk' onPress={() => router.push('/')} />
             </>
           ) : (
             <>
               {isPage1 ? <Page1 /> : <Page2 />}
-              <TouchableOpacity
-                onPress={submitHandler}
-                className='bg-secondary rounded-lg py-3 px-6 disabled:bg-opacity-40'
-              >
-                <Text className='text-white font-bold text-center'>Kirim</Text>
-              </TouchableOpacity>
+              <ButtonPrimary title='Kirim' onPress={submitHandler} />
             </>
           )}
         </View>

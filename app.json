@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "e-Open",
-    "slug": "e-Open",
+    "name": "e-OPen",
+    "slug": "e-OPen",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,27 +12,24 @@
       "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.elsabilah1.eOpen"
+      "package": "com.elsabilah1.eOpen",
+      "permissions": ["android.permission.RECORD_AUDIO"]
     },
     "web": {
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png"
     },
-    "plugins": [
-      "expo-router"
-    ],
+    "plugins": ["expo-router", ["expo-image-picker"]],
     "experiments": {
       "typedRoutes": true
     },
@@ -41,7 +38,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "24326a8b-766d-4dd8-8b1a-9c74f719b06c"
+        "projectId": "aca9813b-fd69-48d3-ab4d-911eaa28c0ca"
       }
     }
   }

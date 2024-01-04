@@ -2,6 +2,7 @@ import { View, Text, Image, Pressable } from 'react-native'
 import React from 'react'
 import { useRouter } from 'expo-router'
 import { iconAssets } from '../data'
+import { useSearchClicked } from './InputSearch'
 
 interface IProps {
   icon: string
@@ -28,7 +29,10 @@ export default function BoxLayanan(props: IProps) {
         {props.name}
       </Text>
       <Pressable
-        onPress={() => router.push(props.link)}
+        onPress={() => {
+          useSearchClicked.setState({ isSearchClicked: false })
+          router.push(props.link)
+        }}
         className='bg-secondary py-1 px-4 rounded-lg'
       >
         <Text className='text-white font-bold text-[10px]'>

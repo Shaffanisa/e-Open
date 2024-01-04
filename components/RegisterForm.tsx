@@ -3,34 +3,29 @@ import React, { useState } from 'react'
 import { View, Text } from 'react-native'
 import InputText from '../components/InputText'
 import Checkbox from 'expo-checkbox'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useForm } from 'react-hook-form'
 import useDummyData from '../store/useDummyData'
+import { ButtonPrimary } from './Button'
 
 type FormData = {
   noKK: string
   nik: string
   email: string
-  noHP: string
+  noHp: string
   password: string
 }
 
 export default function RegisterForm() {
   const router = useRouter()
   const [isChecked, setChecked] = useState(false)
-  const { noKK, nik, email, password } = useDummyData()
+  const { noKK, nik, email, password, noHp } = useDummyData()
 
   const {
     control,
-    handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
-    defaultValues: { noKK, nik, email, password },
+    defaultValues: { noKK, nik, email, password, noHp },
   })
-
-  // const onSubmit = () => {
-  //   router.push('/')
-  // }
 
   return (
     <View className='pb-14'>
@@ -64,7 +59,7 @@ export default function RegisterForm() {
         rules={{ required: true }}
         label='No. HP'
         placeholder='Masukan No. HP Anda'
-        errorMsg={errors.noHP?.message}
+        errorMsg={errors.noHp?.message}
       />
       <InputText
         isSecured
@@ -78,27 +73,18 @@ export default function RegisterForm() {
 
       <View className='mb-6 flex-row items-center'>
         <Checkbox
-          accessibilityLabelledBy='tc'
           value={isChecked}
           onValueChange={setChecked}
           color={isChecked ? '#0C3C84' : undefined}
         />
-        <Text
-          nativeID='tc'
-          className='flex-1 ml-3 text-xs text-content-primary'
-        >
+        <Text className='flex-1 ml-3 text-xs text-content-primary'>
           Dengan mengklik ini saya telah menyetujui{' '}
           <Text className='text-secondary font-bold'>syarat & ketentuan</Text>{' '}
           pelayanan aplikasi E-Open
         </Text>
       </View>
 
-      <TouchableOpacity
-        onPress={() => router.push('/')}
-        className='bg-secondary rounded-lg py-3 px-6'
-      >
-        <Text className='text-white font-bold text-center'>Daftar</Text>
-      </TouchableOpacity>
+      <ButtonPrimary title='Daftar' onPress={() => router.push('/')} />
     </View>
   )
 }

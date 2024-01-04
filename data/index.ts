@@ -9,6 +9,10 @@ export const iconAssets: {
   kiaIcon: require('../assets/images/kia-icon.png'),
   pdfIcon: require('../assets/images/pdf-icon.png'),
   yellowFileIcon: require('../assets/images/yellow-file-icon.png'),
+  statusWaitIcon: require('../assets/images/status-wait-icon.png'),
+  statusProcessIcon: require('../assets/images/status-process-icon.png'),
+  statusSuccessIcon: require('../assets/images/status-success-icon.png'),
+  statusCancelIcon: require('../assets/images/status-cancel-icon.png'),
 }
 
 export const listLayanan = [
@@ -198,3 +202,28 @@ export const sideMenuList = [
     href: '/profil',
   },
 ]
+
+export const sectionLayanan = {
+  'akta-kelahiran': [
+    'Data Kelahiran',
+    'Data Ibu',
+    'Data Ayah',
+    'Data Pelapor',
+    'Data Saksi 1',
+    'Data Saksi 2',
+    'Data Pengambilan',
+    'Unggah Persyaratan',
+    'konfirmasi',
+  ],
+  'akta-kematian': [
+    'Data Kematian',
+    'Data Ibu',
+    'Data Ayah',
+    'Data Pelapor',
+    'Data Saksi 1',
+    'Data Saksi 2',
+    'Data Pengambilan',
+    'Unggah Persyaratan',
+    'konfirmasi',
+  ],
+}

@@ -23,6 +23,8 @@ interface IProps {
     RegisterOptions<FieldValues, string>,
     'disabled' | 'valueAsNumber' | 'valueAsDate' | 'setValueAs'
   >
+  numPad?: boolean
+  unit?: string
 }
 
 export default function InputText({
@@ -37,6 +39,8 @@ export default function InputText({
   errorMsg,
   isSecured,
   className,
+  numPad,
+  unit,
 }: IProps) {
   const [hidePass, setHidePass] = useState(true)
 
@@ -61,17 +65,24 @@ export default function InputText({
         disabled={disabled}
         render={({ field: { onChange, onBlur, value } }) => (
           <View className='relative'>
-            <TextInput
-              placeholder={placeholder}
-              accessibilityLabelledBy={name}
-              onBlur={onBlur}
-              onChangeText={onChange}
-              value={value}
-              secureTextEntry={isSecured && hidePass}
-              className={`border bg-background-primary rounded py-3 px-2 disabled:bg-red-500 ${
+            <View
+              className={`px-2 py-3 border bg-background-primary rounded ${
                 errorMsg ? 'border-negative' : 'border-background-tertiary'
-              }`}
-            />
+              } ${disabled && 'bg-[#FFF9E2]'}`}
+            >
+              <TextInput
+                id={name}
+                editable={!disabled}
+                placeholder={placeholder}
+                accessibilityLabelledBy={name}
+                keyboardType={numPad ? 'decimal-pad' : 'default'}
+                onBlur={onBlur}
+                onChangeText={onChange}
+                value={value}
+                secureTextEntry={isSecured && hidePass}
+              />
+            </View>
+
             {isSecured && (
               <Pressable
                 onPress={() => setHidePass(!hidePass)}
@@ -83,6 +94,11 @@ export default function InputText({
                   <Ionicons name='eye-outline' size={24} color='#202020' />
                 )}
               </Pressable>
+            )}
+            {unit && (
+              <View className='absolute right-0 bg-background-tertiary inset-y-0 w-12 rounded-r justify-center items-center'>
+                <Text className='text-content-tertiary'>{unit}</Text>
+              </View>
             )}
           </View>
         )}

@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Feather } from '@expo/vector-icons'
 import { Pressable, Text, View } from 'react-native'
 import { BottomSheetBackdrop, BottomSheetModal } from '@gorhom/bottom-sheet'
 import { ScrollView } from 'react-native-gesture-handler'
-import { listLayanan } from '../data'
+import { listLayanan } from '../../data'
 import { usePathname } from 'expo-router'
 
 export default function ModalSyaratLayanan() {
@@ -12,6 +12,10 @@ export default function ModalSyaratLayanan() {
 
   const bottomSheetModalRef = React.useRef<BottomSheetModal>(null)
   const snapPoints = React.useMemo(() => ['25%', '50%'], [])
+
+  useEffect(() => {
+    bottomSheetModalRef.current?.present()
+  }, [])
 
   const handlePresentModalPress = React.useCallback(() => {
     bottomSheetModalRef.current?.present()

@@ -1,4 +1,3 @@
-import React from 'react'
 import { View, Text, Pressable } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { useRouter } from 'expo-router'

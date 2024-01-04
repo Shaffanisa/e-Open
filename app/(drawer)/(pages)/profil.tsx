@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
 import { View, Text } from 'react-native'
-import InputText from '../../../components/InputText'
-import { TouchableOpacity } from 'react-native-gesture-handler'
 import { Link, useRouter } from 'expo-router'
 import { useForm } from 'react-hook-form'
 import useDummyData from '../../../store/useDummyData'
+import { ButtonPrimary } from '../../../components/Button'
+import InputText from '../../../components/InputText'
 
 type FormData = {
   noKK: string
@@ -38,7 +37,6 @@ export default function ProfilPage() {
 
   const {
     control,
-    handleSubmit,
     formState: { errors },
   } = useForm<FormData>({
     defaultValues: {
@@ -70,6 +68,7 @@ export default function ProfilPage() {
 
       <>
         <InputText
+          disabled
           name='noKK'
           control={control}
           rules={{ required: true }}
@@ -78,6 +77,7 @@ export default function ProfilPage() {
           errorMsg={errors.noKK?.message}
         />
         <InputText
+          disabled
           name='nik'
           control={control}
           rules={{ required: true }}
@@ -86,6 +86,7 @@ export default function ProfilPage() {
           errorMsg={errors.nik?.message}
         />
         <InputText
+          disabled
           name='namaLengkap'
           control={control}
           rules={{ required: true }}
@@ -94,6 +95,7 @@ export default function ProfilPage() {
           errorMsg={errors.namaLengkap?.message}
         />
         <InputText
+          disabled
           name='kecamatan'
           control={control}
           rules={{ required: true }}
@@ -102,6 +104,7 @@ export default function ProfilPage() {
           errorMsg={errors.kecamatan?.message}
         />
         <InputText
+          disabled
           name='kelurahan'
           control={control}
           rules={{ required: true }}
@@ -110,6 +113,7 @@ export default function ProfilPage() {
           errorMsg={errors.kelurahan?.message}
         />
         <InputText
+          disabled
           name='rw'
           control={control}
           rules={{ required: true }}
@@ -118,6 +122,7 @@ export default function ProfilPage() {
           errorMsg={errors.rw?.message}
         />
         <InputText
+          disabled
           name='rt'
           control={control}
           rules={{ required: true }}
@@ -126,6 +131,7 @@ export default function ProfilPage() {
           errorMsg={errors.rt?.message}
         />
         <InputText
+          disabled
           name='kodePos'
           control={control}
           rules={{ required: true }}
@@ -157,6 +163,7 @@ export default function ProfilPage() {
 
       <View className='mb-20'>
         <InputText
+          disabled
           name='email'
           control={control}
           rules={{ required: true }}
@@ -165,6 +172,7 @@ export default function ProfilPage() {
           errorMsg={errors.email?.message}
         />
         <InputText
+          disabled
           isSecured
           name='password'
           control={control}
@@ -174,6 +182,7 @@ export default function ProfilPage() {
           errorMsg={errors.password?.message}
         />
         <InputText
+          disabled
           name='noHp'
           control={control}
           rules={{ required: true }}
@@ -183,12 +192,7 @@ export default function ProfilPage() {
         />
       </View>
 
-      <TouchableOpacity
-        onPress={() => router.push('/')}
-        className='bg-secondary rounded-lg py-3 px-6'
-      >
-        <Text className='text-white font-bold text-center'>Keluar</Text>
-      </TouchableOpacity>
+      <ButtonPrimary title='Keluar' onPress={() => router.push('/')} />
     </View>
   )
 }
