@@ -59,7 +59,7 @@ export default function FormDataKematian() {
   ]
 
   return (
-    <>
+    <View className='pb-16'>
       <InputText
         name='nik'
         control={control}
@@ -223,6 +223,6 @@ export default function FormDataKematian() {
           useSearchClicked.setState({ isSearchClicked: false })
         }}
       />
-    </>
+    </View>
   )
 }
